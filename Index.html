@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="Styles.css" type="text/css">
+<link rel="stylesheet" href="modal.css" type="text/css">
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+    
+<body>
+    <fieldset id="dashboard">
+        <legend>Dashboard</legend>
+        <label class="headingText">Chart Settings</label>
+        <br><br>
+        <label class="smlLabel">Project Name: </label><input id="ProjectName" type="text"><br>
+        <label class="smlLabel">Style:</label>
+        <select id="styleToggle" class="smlText">
+            <option name="styleToggle" value="area">Area</option>
+            <option name="styleToggle" value="bar">Bar</option>
+            <option name="styleToggle" value="doughnut">Doughnut</option>
+            <option name="styleToggle" value="pie" selected>Pie</option>
+            <option name="styleToggle" value="spline">Spline</option>
+        </select>
+        <br>
+        <label class="smlLabel">Animation:</label>
+        <label class="smlText">On:</label><input id="On" name="animationToggle" value="true" type="radio" checked>
+        <label class="smlText">Off:</label><input id="Off" name="animationToggle"  value="false" type="radio">
+        <br>
+        <label class="smlLabel">Theme:</label>
+        <label class="smlText">One:</label><input id="Theme1" name="themeToggle" value="theme1" type="radio">
+        <label class="smlText">Two:</label><input id="Theme2" name="themeToggle" value="theme2" type="radio" checked>
+        <label class="smlText">Three:</label><input id="Theme3" name="themeToggle" value="theme3" type="radio">
+        <br><br><button id="renderChartBtn" style="float:right;">Render Chart</button>
+        <br><br><hr>
+        
+    <label class="headingText">Project Files</label>
+        <p class="smlText">Add all the code files from a project an upload, to see a summary of information.</p>
+        <input id="fileInput" type="file" multiple accept="text/plain,text/html,.js,text/css,.py">
+        <p class="smlText">Extensions *.txt, *.js, *.html, *.py, *.css</p>
+        <button id="clearFiles">Clear Files</button>
+        <button id="UploadBtn">Upload</button>
+        <br><br>
+        <div id="errorContainer"></div>
+    </fieldset>
+
+<!-- File content -->
+    <fieldset id="fileContainer">
+        <legend>Project Files</legend>
+        <label class="headingText">List of Files</label>
+        <div id="fileList"></div>
+        <br>
+        <hr>
+        <p class="headingText">List of Extensions</p>
+        <div id="typeList"></div>
+        <br>
+    </fieldset>
+    
+<!-- Modal content -- Hidden by default -->
+<div id="codeModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">x</span>
+            <h2 id="codeModalHeading"></h2>
+        </div>
+        <div id="codeContainer" class="modal-body">
+            <pre><code id="codeContainerInside"></code></pre>
+        </div>
+        <div class="modal-footer">
+            <h3 id="codeModalFooter"></h3>
+        </div>
+    </div>
+</div>
+    
+<!-- Chart content -->
+    <fieldset id="chartMainContainer">
+        <legend>Code Analysis Chart</legend>
+        <div id="chartContainer"></div>
+    </fieldset>
+    
+    <script src="basicCanvas.js"></script>
+    <script src="displayCode.js"></script>
+</body>
+</html>
